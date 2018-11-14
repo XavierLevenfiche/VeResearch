@@ -1,14 +1,11 @@
 // for read in files and ipfs //
 var fs = require('fs');
 var path = require('path');
-var csvWriter = require('csv-write-stream')
-var writer = csvWriter()
 const ipfs = require('ipfs-api')({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
 var glob = require('glob');
 //
 
 // for tx // 
-
 const thorify = require("thorify");
 const Web3 = require("web3");
 const axios = require('axios');
@@ -54,7 +51,7 @@ glob('**/*.txt', function (err, files) {
                     } else {
                         //console.log(transactionHash);
                         //FileList2[i] = files[i] + ', ' + Hash + ', ' + transactionHash + '\n';
-                        FileList2[i] = {filename: files[i], IPFSHash: Hash, TXid: transactionHash};
+                        FileList2[i] = {filename: files[i], IPFSHash: Hash, TXid: transactionHash}; // store each file info as an object
                         console.log(FileList2[i]);         
                     }
                   });          
